@@ -21,25 +21,26 @@
 						<label class="form-label" for="student-f2-select">入学年度 </label>
 						<select class="form-select " id="student-f1-select name="f1">
 							<option value="0">--------</option>
-						<c:forEach var="year" items="${ent_year_set}">
+							<c:forEach var="year" items="${ent_year_set}">
 							<%--現在のyearと選択されていたf1が一致していた場合selectedを追記 --%>
-							<option value="${year}" <c:if test="{year==f1}">selected</c:if>>${year}</option>
-						</c:forEach>
-					</select>
-				</div>
-				<div class="col-4">
-					<label class="form-label" for="student-f2-select">クラス</label>
-					<select class="form-select " id="student-f2-select name="f2">
-						<option value="0">--------</option>
-						<c:forEach var="num" items="${class_num_set}">
-							<option value="${num}"<c:if test="${num==f2}>selected</c:if>>${num}</option>
-						</c:forEach>
-					</select>
-				</div>
-				<div class="col-2 form-check text-center">
-					<label class="form-check-label" for="student-f3-check">在学中
-						<%-- パラメーターf3が存在している場合checkedを追記 --%>
-						<input class="form-check-input" type="checkbox"
+								<option value="${year}" <c:if test="{year==f1}">selected</c:if>>${year}</option>
+							</c:forEach>
+						</select>
+					</div>
+					<div class="col-4">
+						<label class="form-label" for="student-f2-select">クラス</label>
+						<select class="form-select " id="student-f2-select name="f2">
+							<option value="0">--------</option>
+							<c:forEach var="num" items="${class_num_set}">
+								<%--現在のnumと選択されていたf1が一致していた場合selectedを追記 --%>
+								<option value="${num}"<c:if test="${num==f2}>selected</c:if>>${num}</option>
+							</c:forEach>
+						</select>
+					</div>
+					<div class="col-2 form-check text-center">
+						<label class="form-check-label" for="student-f3-check">在学中
+							<%-- パラメーターf3が存在している場合checkedを追記 --%>
+							<input class="form-check-input" type="checkbox"
 							id="student-f3-check" name="f3 value="t"
 							<c:if test=${!empty f3}">checked</c:if>/>
 						</label>
@@ -72,25 +73,25 @@
 								<td class="text-center">
 									<%-- 在学フラグがたっている場合「○」それ以外は「×」を表示 --%>>
 									<c:choose>
-
 										<c:when test=${student.isAttend()}">
 											○
 										</c:when>
 										<c:otherwise>
 											×
-									</c:otherwise>
-								</c:choose>
-							</td>
-							<td><a href="StedentUpdate.action?no=${student.no}">変更</a></td>
-							<td><a href="StedentUpdate.action?no=${student.no}">削除</a></td>
-						</tr>
-					</c:forEach>
-				</table>
-			</c:when>
-			<c:otherwise>
-				<div>学生情報が存在しませんでした</div>
-			</c:otherwise>
-		</c:choose>
-	</section>
-</c:param>
+										</c:otherwise>
+									</c:choose>
+								</td>
+								<td><a href="StedentUpdate.action?no=${student.no}">変更</a></td>
+								<td><a href="StedentUpdate.action?no=${student.no}">削除</a></td>
+							</tr>
+						</c:forEach>
+					</table>
+				</c:when>
+				<c:otherwise>
+					<div>学生情報が存在しませんでした</div>
+				</c:otherwise>
+			</c:choose>
+		</section>
+	</c:param>
 </c:import>
+
