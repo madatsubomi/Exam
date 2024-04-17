@@ -13,7 +13,7 @@ public class Student implements Serializable {
 	public String getNo() {
 		return no;
 	}
-	public void setId(String no) {
+	public void setNo(String no) {
 		this.no = no;
 	}
 	public String getName() {
@@ -28,7 +28,7 @@ public class Student implements Serializable {
 	public void setEntYear(int entYear) {
 		this.entYear = entYear;
 	}
-	public String setClassNum() {
+	public String getClassNum() {
 		return classNum;
 	}
 	public void setClassNum(String classNum){
@@ -46,5 +46,4 @@ public class Student implements Serializable {
 	public void setSchool(School school) {
 		this.school = school;
 	}
-
 }
